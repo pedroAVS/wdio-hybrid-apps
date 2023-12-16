@@ -1,0 +1,31 @@
+{
+  "name": "automated-tests",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.js",
+    "test:android:local": "wdio wdio.android.local.conf.ts",
+    "test": "npm run test:android:local"
+  },
+  "keywords": [],
+  "author": "Pedro Sousa",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.10.3",
+    "@wdio/appium-service": "^8.26.1",
+    "@wdio/cli": "^8.24.6",
+    "@wdio/local-runner": "^8.24.6",
+    "@wdio/mocha-framework": "^8.24.6",
+    "@wdio/spec-reporter": "^8.24.2",
+    "@wdio/types": "^8.24.2",
+    "appium": "^2.2.3",
+    "appium-uiautomator2-driver": "^2.34.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4",
+    "webdriverio": "^8.24.12"
+  },
+  "directories": {
+    "test": "test"
+  }
+}

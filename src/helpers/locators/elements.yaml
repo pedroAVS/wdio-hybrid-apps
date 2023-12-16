@@ -1,0 +1,41 @@
+template:
+  android:
+    locator: 
+    strategy: 
+  ios:
+    locator: 
+    strategy: 
+  web:
+    locator: 
+    strategy: 
+denyLocalizationButton:
+  android:
+    locator: new UiSelector().text("Skip").className("android.widget.TextView")
+    strategy: UIAutomator2
+  ios:
+    locator: type == 'XCUIElementTypeButton' && name CONTAINS 'Don’t Allow'
+    strategy: IOSPredicateString
+loginButton:
+  web:
+    locator: //*[@qa-label='LoginContinueBtn']
+    strategy: XPath
+loginEmailButton:
+  web:
+    locator: //*[@data-qa-label='LogInLnk']
+    strategy: XPath
+headerSettingsButton:
+  web:
+    locator:  //*[@qa-label='HeaderSettingsIcon']
+    strategy: XPath
+loginSignupButton:
+  web:
+    locator:  //*[@qa-label='LoginSignUpSettingsBtn']
+    strategy: XPath
+usernameField:
+  web:
+    locator:  //*[@data-qa-label='BKGbSignInEmailTxt']
+    strategy: XPath
+passwordField:
+  web:
+    locator:  //*[@data-qa-label='BKGbSignInPasswordTxt']
+    strategy: XPath
