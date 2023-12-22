@@ -15,7 +15,6 @@ export default class HomePage {
   }
 
   async clickLoginButton() {
-    
     await ElementInteractor.clickElement(this.denyLocalizationButton, this.pageName);
     await ElementInteractor.clickElement(this.headerSettingsButton, this.pageName);
     await ElementInteractor.clickElement(this.loginSignupButton, this.pageName);
