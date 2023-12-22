@@ -12,24 +12,27 @@ export default class LoginPage {
   passwordField: string;
   loginEmailButton: string;
   loginButton: string;
+  pageName: string;
+  dataFilePath: string;
+  data: LoginData;
   
   constructor() {
     this.usernameField = 'usernameField';
     this.passwordField = 'passwordField';
     this.loginEmailButton = 'loginEmailButton';
     this.loginButton = 'loginButton';
+    this.pageName = path.basename(__filename, '.ts');
+    this.dataFilePath = path.join(__dirname, '..', 'data', `${this.pageName}.yaml`);
+    this.data = Utils.readYamlFile(this.dataFilePath) as LoginData;
   }
 
-  async loginSuccessfully(username: string = '', password: string = '') {
-    const pageName = path.basename(__filename, '.ts');
-    const dataFilePath = path.join(__dirname, '..', 'data', `${pageName}.yaml`);
-    const data = Utils.readYamlFile(dataFilePath) as LoginData;
-    username = username || data.username;
-    password = password || data.password;
+  async loginSuccessfully(username?: string, password?: string) {
+    username = this.data.username;
+    password = this.data.password;
 
-    await ElementInteractor.clickElement(this.loginEmailButton, pageName);
-    await ElementInteractor.setElementValue(this.usernameField, username, pageName);
-    await ElementInteractor.setElementValue(this.passwordField, password, pageName);
-    await ElementInteractor.clickElement(this.loginButton, pageName);
+    await ElementInteractor.clickElement(this.loginEmailButton, this.pageName);
+    await ElementInteractor.setElementValue(this.usernameField, username, this.pageName);
+    await ElementInteractor.setElementValue(this.passwordField, password, this.pageName);
+    await ElementInteractor.clickElement(this.loginButton, this.pageName);
   }
 }

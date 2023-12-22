@@ -5,18 +5,19 @@ export default class HomePage {
   denyLocalizationButton: string;
   headerSettingsButton: string;
   loginSignupButton: string;
+  pageName: string;
 
   constructor() {
     this.denyLocalizationButton = 'denyLocalizationButton';
     this.headerSettingsButton = 'headerSettingsButton';
     this.loginSignupButton = 'loginSignupButton';
+    this.pageName = path.basename(__filename, '.ts');
   }
 
   async clickLoginButton() {
-    const pageName = path.basename(__filename, '.ts');
     
-    await ElementInteractor.clickElement(this.denyLocalizationButton, pageName);
-    await ElementInteractor.clickElement(this.headerSettingsButton, pageName);
-    await ElementInteractor.clickElement(this.loginSignupButton, pageName);
+    await ElementInteractor.clickElement(this.denyLocalizationButton, this.pageName);
+    await ElementInteractor.clickElement(this.headerSettingsButton, this.pageName);
+    await ElementInteractor.clickElement(this.loginSignupButton, this.pageName);
   }
 }
