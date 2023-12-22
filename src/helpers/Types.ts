@@ -10,3 +10,8 @@ export type ElementLocator = {
     iosLocator?: LocatorProps;
     webLocator?: LocatorProps;
 };
+
+export interface Locator {
+    locator: string;
+    strategy: string;
+  }

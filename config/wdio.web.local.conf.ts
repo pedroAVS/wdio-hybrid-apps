@@ -20,5 +20,5 @@ export const config = {
       browserName: 'chrome',
     }],
     services: ['chromedriver'],
-    baseUrl: `https://www-${process.argv[3]}.tillster.com/`,
+    baseUrl: `https://www-${process.argv[3]}.testapp.com/`,
   };

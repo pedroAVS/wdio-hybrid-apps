@@ -1,4 +1,4 @@
-import { runStep } from "../src/helpers/CustomMethods";
+import { runStep } from "../src/helpers/Utils";
 
 describe('Login Test', () => {
 

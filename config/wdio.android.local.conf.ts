@@ -1,7 +1,7 @@
 export const config = {
 
-  before: function (capabilities, specs) {
-    global.platformName = capabilities[0].platformName.toLowerCase();
+  beforeSession: function () {
+    global.platformName = 'android'
   },
 
   runner: 'local',
@@ -15,14 +15,18 @@ export const config = {
   ],
   capabilities: [{
     platformName: 'Android',
-    'appium:deviceName': 'emulator-5554',
+    'appium:deviceName': 'pixel',
     'appium:platformVersion': '12',
-    'appium:app': '/Users/pedrosousa/Downloads/enp-us-mobile-6.0.9-1-qa-a-debug.apk',
+    'appium:app': '**/app-debug.apk',
     'appium:automationName': 'UiAutomator2',
+    'appium:chromedriverExecutable': './node_modules/chromedriver/lib/chromedriver/chromedriver',
   }],
   services: ['appium'],
   appium: {
     command: 'appium',
+    args: {
+      allowInsecure: 'chromedriver_autodownload',
+    },
     logPath: './appium_logs',
   },
 };
