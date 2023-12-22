@@ -1,4 +1,9 @@
 export const config = {
+
+  before: function (capabilities, specs) {
+    global.platformName = capabilities[0].platformName.toLowerCase();
+  },
+
   runner: 'local',
   framework: 'mocha',
   mochaOpts: {
@@ -6,13 +11,13 @@ export const config = {
     timeout: 60000
   },
   specs: [
-    './test/*'
+    '../test/*'
   ],
   capabilities: [{
     platformName: 'Android',
-    'appium:deviceName': 'emulator',
+    'appium:deviceName': 'emulator-5554',
     'appium:platformVersion': '12',
-    'appium:app': '**/**/***.apk',
+    'appium:app': '/Users/pedrosousa/Downloads/enp-us-mobile-6.0.9-1-qa-a-debug.apk',
     'appium:automationName': 'UiAutomator2',
   }],
   services: ['appium'],
@@ -21,7 +26,3 @@ export const config = {
     logPath: './appium_logs',
   },
 };
-
-export function getPlatformName() {
-  return config.capabilities[0].platformName;
-}

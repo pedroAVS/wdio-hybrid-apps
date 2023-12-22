@@ -8,6 +8,7 @@
       "@wdio/globals/types",
       "expect-webdriverio",
       "@wdio/appium-service",
+      "webdriverio"
     ],
     "skipLibCheck": true,
     "noEmit": true,

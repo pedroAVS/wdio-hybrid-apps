@@ -2,7 +2,14 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as yaml from 'js-yaml';
 import { IOSSelectorStrategies, AndroidSelectorStrategies, WebViewSelectorStrategies } from './Strategies';
-import { getPlatformName } from '../../wdio.android.local.conf';
+
+declare global {
+  namespace NodeJS {
+    interface Global {
+      platformName: string;
+    }
+  }
+}
 
 interface ElementLocator {
   [key: string]: Locator | undefined;
@@ -49,7 +56,9 @@ export class ElementSelector {
         strategy = AndroidSelectorStrategies[locator.strategy as keyof typeof AndroidSelectorStrategies];
         break;
       case 'web':
-        await this.switchToContext('web')
+        if (driver.isAndroid || driver.isIOS) {
+          await this.switchToContext('web')
+        }
         strategy = WebViewSelectorStrategies[locator.strategy as keyof typeof WebViewSelectorStrategies];
         break;
       default:
@@ -88,7 +97,7 @@ export class ElementSelector {
   }
 
   static async getElement(elementName: string): Promise<string> {
-    let platform = getPlatformName();
+    let platform = (global as any).platformName;
     console.log("RUNING ON::: " + platform);
     const elementLocators = this.getElementLocator(elementName);
     let locator = elementLocators[platform.toLowerCase()];
