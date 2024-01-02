@@ -18,6 +18,9 @@ export const config = {
     ],
     capabilities: [{
       browserName: 'chrome',
+      'goog:chromeOptions': {
+        args: ['--window-size=1280,800'],
+      }
     }],
     services: ['chromedriver'],
     baseUrl: `https://www-${process.argv[3]}.testapp.com/`,

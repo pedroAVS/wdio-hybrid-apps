@@ -1,6 +1,6 @@
 // ElementSelector.ts
-import { IOSSelectorStrategies, AndroidSelectorStrategies, WebViewSelectorStrategies } from './Strategies';
-import { ElementLocatorLoader } from './ElementLocatorLoader';
+import { IOSSelectorStrategies, AndroidSelectorStrategies } from './Strategies';
+import { ElementLocatorLoader, LocatorsType } from './ElementLocatorLoader';
 import { ContextSwitcher } from './ContextSwitcher';
 import { Locator } from './Types';
 
@@ -13,11 +13,16 @@ declare global {
 }
 
 export class ElementSelector {
-  static async getElement(elementName: string, page: string): Promise<string> {
+  static async getElement(elementName: keyof LocatorsType): Promise<string> {
     let platform = (global as any).platformName;
-    ElementLocatorLoader.clearElements();
-    const elementLocators = ElementLocatorLoader.getElementLocator(elementName, page);
-    let locator = elementLocators[platform.toLowerCase()];
+    const elementLocators = ElementLocatorLoader.getElementLocator(elementName);
+    let locator = elementLocators[platform.toLowerCase() as 'ios' | 'android' | 'web'];
+
+    if (!locator && (platform.toLowerCase() === 'ios' || platform.toLowerCase() === 'android')) {
+      locator = elementLocators['webMobile'];
+      platform = 'web';
+    }
+
     if (!locator) {
       locator = elementLocators['web'];
       if (!locator) {
@@ -43,20 +48,16 @@ export class ElementSelector {
         if (driver.isAndroid || driver.isIOS) {
           await ContextSwitcher.switchToContext('web')
         }
-        strategy = WebViewSelectorStrategies[locator.strategy as keyof typeof WebViewSelectorStrategies];
-        break;
+        return locator.locator;
       default:
         throw new Error(`Platform ${platform} is not supported`);
     }
 
-    if (!strategy) {
-      throw new Error(`Strategy not found for ${platform}`);
-    }
 
-    if (locator.strategy.toLowerCase() === 'xpath') {
-      return locator.locator;
-    }
-
+    // if (locator.strategy.toLowerCase() === 'xpath') {
+    //   return locator.locator;
+    // }
+    
     return `${strategy}${locator.locator}`;
   }
 }

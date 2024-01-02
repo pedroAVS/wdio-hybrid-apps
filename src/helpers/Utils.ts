@@ -6,6 +6,9 @@ export async function runStep(pageObject: any, methodName: string) {
   console.log("RUNNING PAGE OBJECT::: " + pageObject)
   console.log("RUNNING PLATFORM::: " + (global as any).platformName);
   let platform = (global as any).platformName;
+  if (platform === 'android' || platform === 'ios') {
+    platform = 'mobile';
+  }
   const platformModule = await import(`../pages/${platform}/${pageObject}`);
   const pageObjectInstance = new platformModule.default();
   await pageObjectInstance[methodName]();

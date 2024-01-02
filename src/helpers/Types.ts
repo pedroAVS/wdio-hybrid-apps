@@ -13,5 +13,5 @@ export type ElementLocator = {
 
 export interface Locator {
     locator: string;
-    strategy: string;
+    strategy?: string;
   }
