@@ -1,8 +1,8 @@
-import { AndroidSelectorStrategies, IOSSelectorStrategies, WebViewSelectorStrategies } from "./Strategies";
+import { AndroidSelectorStrategies, IOSSelectorStrategies } from "./Strategies";
 
 type LocatorProps = {
     locator: string;
-    strategy: AndroidSelectorStrategies | IOSSelectorStrategies | WebViewSelectorStrategies;
+    strategy: AndroidSelectorStrategies | IOSSelectorStrategies;
 };
 
 export type ElementLocator = {

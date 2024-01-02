@@ -12,14 +12,3 @@ export enum AndroidSelectorStrategies {
   UIAutomator2 = 'android=',
   ResourceID = 'id:',
 }
-
-export enum WebViewSelectorStrategies {
-  CSS = 'css=',
-  XPath = 'xpath=',
-  ID = 'id=',
-  LinkText = 'link text=',
-  PartialLinkText = 'partial link text=',
-  TagName = 'tag name=',
-  ClassName = 'class name=',
-  Name = 'name=',
-}
