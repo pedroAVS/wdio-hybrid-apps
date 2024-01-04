@@ -12,14 +12,15 @@ export const HOME_PAGE_ELEMENTS = {
     },
     headerSettingsButton: {
         web: {
-            locator: "//*[@qa-label='HeaderSettingsIcon']",
-            strategy: 'XPath',
+            locator: "[qa-label='HeaderSettingsIcon']"
         },
     },
     loginSignupButton: {
+        webMobile: {
+            locator: "[qa-label='LoginSignUpSettingsBtn']"
+        },
         web: {
-            locator: "//*[@qa-label='LoginSignUpSettingsBtn']",
-            strategy: 'XPath',
+            locator: "[data-qa-label='LoginSignUpSettingsBtn']"
         },
     },
     registeredGreetingText: {
@@ -113,13 +114,7 @@ export const LOCATION_PAGE_ELEMENTS = {
             locator: "//*[@qa-label='LocationServicesOffBtn']",
             strategy: 'XPath',
         },
-    },
-    loginSignupBtn: {
-        web: {
-            locator: "//*[@data-qa-label='LoginSignUpSettingsBtn']",
-            strategy: 'XPath',
-        },
-    },
+    }
 }
 
 export const LOCATORS = {

@@ -1,7 +1,7 @@
 export const config = {
 
   beforeSession: function () {
-    global.platformName = 'android'
+    (global as any).platformName = 'android'
   },
 
   runner: 'local',

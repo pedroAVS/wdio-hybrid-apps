@@ -1,10 +1,7 @@
-//let env: string = process.env.tenant;
-//let tenant: string = process.env.env;
-
 export const config = {
   before: function () {
-    global.platformName = 'web';
-    
+    (global as any).platformName = 'web';
+    browser.url('/');
   },
     logLevel: 'silent',
     runner: 'local',
