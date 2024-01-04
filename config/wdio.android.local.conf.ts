@@ -10,6 +10,7 @@ export const config = {
     ui: 'bdd',
     timeout: 60000
   },
+  reporters: ['dot', 'spec'],
   specs: [
     '../test/*'
   ],
@@ -20,6 +21,7 @@ export const config = {
     'appium:app': '**/app-debug.apk',
     'appium:automationName': 'UiAutomator2',
     'appium:chromedriverExecutable': './node_modules/chromedriver/lib/chromedriver/chromedriver',
+    'appium:chromeOptions': { 'w3c': false },
   }],
   services: ['appium'],
   appium: {

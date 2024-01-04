@@ -36,38 +36,65 @@ export const HOME_PAGE_ELEMENTS = {
 export const LOGIN_PAGE_ELEMENTS = {
     loginButton: {
         webMobile: {
-            locator: "//*[@qa-label='LoginContinueBtn']",
-            strategy: 'XPath',
+            locator: "[qa-label='LoginContinueBtn']"
         },
         web: {
-            locator: "//*[@data-qa-label='SignInBtn']",
-            strategy: 'XPath',
+            locator: "[data-qa-label='SignInBtn']"
         },
     },
     loginEmailButton: {
         web: {
-            locator: "//*[@data-qa-label='LogInLnk']",
-            strategy: 'XPath',
+            locator: "[data-qa-label='LogInLnk']"
         },
     },
     usernameField: {
         webMobile: {
-            locator: "//*[@data-qa-label='BKGbSignInEmailTxt']",
-            strategy: 'XPath',
+            locator: "[data-qa-label='BKGbSignInEmailTxt']"
         },
         web: {
-            locator: "//*[@data-qa-label='SignInEmailTxt']",
-            strategy: 'XPath',
+            locator: "[data-qa-label='SignInEmailTxt']"
         },
     },
     passwordField: {
         webMobile: {
-            locator: "//*[@data-qa-label='BKGbSignInPasswordTxt']",
+            locator: "[data-qa-label='BKGbSignInPasswordTxt']"
+        },
+        web: {
+            locator: "[data-qa-label='SignInPasswordTxt']"
+        },
+    },
+    passwordVisibleField: {
+        webMobile: {
+            locator: ".password-visible"
+        },
+        web: {
+            locator: "[data-test-id='LoginPasswordVisibleText']"
+        },
+    },
+    errorPopup: {
+        webMobile: {
+            locator: "[qa-label='InvalidUsernamePasswordLbl']",
             strategy: 'XPath',
         },
         web: {
-            locator: "//*[@data-qa-label='SignInPasswordTxt']",
+            locator: ".error-popup__header"
+        },
+    },
+    errorPopupCloseButton: {
+        webMobile: {
+            locator: "[data-qa-label='InvalidUsernamePasswordTryAgainLnk']"
+        },
+        web: {
+            locator: "[data-qa-label='ErrPopupOkBtn']"
+        },
+    },
+    showPasswordButton: {
+        webMobile: {
+            locator: "[data-qa-label='ShowHideLnk']",
             strategy: 'XPath',
+        },
+        web: {
+            locator: ".toggle-password-visibility"
         },
     },
 };
@@ -102,10 +129,15 @@ export const LOCATORS = {
 };
 
 export const LOGIN_DATA = {
-    username: 'pedro.tillstertests@gmail.com',
-    password: '12345678'
+    username: 'pavstests@gmail.com',
+    password: 'Test123'
+};
+
+export const ASSERTIONS = {
+    signupError: ['Invalid email or password', 'Invalid email and/or password'],
 };
 
 export const TEST_DATA = {
     ...LOGIN_DATA,
+    signupError: driver.isAndroid || driver.isIOS ? ASSERTIONS.signupError[1] : ASSERTIONS.signupError[0],
 };

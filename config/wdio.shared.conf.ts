@@ -14,7 +14,7 @@ export const config = {
   connectionRetryCount: 3,
   
   framework: 'mocha',
-  reporters: ['spec'],
+  reporters: ['dot', 'spec'],
 
   services: [],
 };

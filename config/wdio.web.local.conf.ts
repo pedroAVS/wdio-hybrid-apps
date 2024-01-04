@@ -6,13 +6,14 @@ export const config = {
     global.platformName = 'web';
     
   },
-
+    logLevel: 'silent',
     runner: 'local',
     framework: 'mocha',
     mochaOpts: {
       ui: 'bdd',
       timeout: 60000
     },
+    reporters: ['dot', 'spec'],
     specs: [
       '../test/*'
     ],
@@ -23,5 +24,5 @@ export const config = {
       }
     }],
     services: ['chromedriver'],
-    baseUrl: `https://www-${process.argv[3]}.testapp.com/`,
+    baseUrl: `https://www-${process.argv[3]}.app.com/`,
   };

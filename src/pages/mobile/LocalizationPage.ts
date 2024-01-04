@@ -1,4 +1,4 @@
-import { ElementInteractor } from "../../helpers/ElementInteractor";
+import { EI } from "../../helpers/ElementInteractor";
 import { LocatorsType } from "../../helpers/ElementLocatorLoader";
 
 export default class LocalizationPage {
@@ -9,6 +9,6 @@ export default class LocalizationPage {
     }
 
     async dismissLocationServices() {
-        await ElementInteractor.clickElement(this.denyLocalizationButton);
+        await EI.clickElement(this.denyLocalizationButton);
     }
 }

@@ -1,7 +1,6 @@
-import fs from 'fs';
-import yaml from 'js-yaml';
+// Note: StepRunner is a utility function that will run a step from a page object
 
-export async function runStep(pageObject: any, methodName: string) {
+export async function runStep(pageObject: any, methodName: string, ...params: any[]) {
   console.log("RUNNING STEP::: " + methodName);
   console.log("RUNNING PAGE OBJECT::: " + pageObject)
   console.log("RUNNING PLATFORM::: " + (global as any).platformName);
@@ -11,21 +10,6 @@ export async function runStep(pageObject: any, methodName: string) {
   }
   const platformModule = await import(`../pages/${platform}/${pageObject}`);
   const pageObjectInstance = new platformModule.default();
-  await pageObjectInstance[methodName]();
+  const result = await pageObjectInstance[methodName](... params);
+  return result;
 }
-
-class Utils {
-
-  static readYamlFile(filePath: string) {
-    try {
-      const fileContents = fs.readFileSync(filePath, 'utf8');
-      const data = yaml.load(fileContents);
-      return data;
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
-}
-
-export default Utils;
