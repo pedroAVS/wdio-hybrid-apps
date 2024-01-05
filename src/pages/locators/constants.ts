@@ -25,8 +25,7 @@ export const HOME_PAGE_ELEMENTS = {
     },
     registeredGreetingText: {
         webMobile: {
-            locator: ".welcome-name",
-            strategy: 'CSS',
+            locator: ".welcome-name"
         },
         web: {
             locator: "[data-qa-label='UserNameLbl']"
@@ -74,8 +73,7 @@ export const LOGIN_PAGE_ELEMENTS = {
     },
     errorPopup: {
         webMobile: {
-            locator: "[qa-label='InvalidUsernamePasswordLbl']",
-            strategy: 'XPath',
+            locator: "[qa-label='InvalidUsernamePasswordLbl']"
         },
         web: {
             locator: ".error-popup__header"
@@ -91,8 +89,7 @@ export const LOGIN_PAGE_ELEMENTS = {
     },
     showPasswordButton: {
         webMobile: {
-            locator: "[data-qa-label='ShowHideLnk']",
-            strategy: 'XPath',
+            locator: "[data-qa-label='ShowHideLnk']"
         },
         web: {
             locator: ".toggle-password-visibility"
@@ -111,8 +108,7 @@ export const LOCATION_PAGE_ELEMENTS = {
             strategy: 'IOSPredicateString',
         },
         web: {
-            locator: "//*[@qa-label='LocationServicesOffBtn']",
-            strategy: 'XPath',
+            locator: "[qa-label='LocationServicesOffBtn']"
         },
     }
 }
