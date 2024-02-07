@@ -52,11 +52,6 @@ export class ElementSelector {
       default:
         throw new Error(`Platform ${platform} is not supported`);
     }
-
-
-    // if (locator.strategy.toLowerCase() === 'xpath') {
-    //   return locator.locator;
-    // }
     
     return `${strategy}${locator.locator}`;
   }

@@ -113,10 +113,70 @@ export const LOCATION_PAGE_ELEMENTS = {
     }
 }
 
+export const CREATE_ACCOUNT_PAGE_ELEMENTS = {
+    firstNameInput: {
+        webMobile: {
+            locator: "[qa-label='FirstNameTxt']"
+        },
+        web: {
+            locator: "[data-qa-label='FirstNameTxt']"
+        },
+    },
+    lastNameInput: {
+        webMobile: {
+            locator: "[qa-label='LastNameTxt']"
+        },
+        web: {
+            locator: "[data-qa-label='LastNameTxt']"
+        },
+    },
+    emailInput: {
+        webMobile: {
+            locator: "[qa-label='EmailTxt']"
+        },
+        web: {
+            locator: "[data-qa-label='EmailTxt']"
+        },
+    },
+    passwordInput: {
+        webMobile: {
+            locator: "[qa-label='PasswordTxt']"
+        },
+        web: {
+            locator: "[data-qa-label='PasswordTxt']"
+        },
+    },
+    confirmPasswordInput: {
+        webMobile: {
+            locator: "[qa-label='ConfirmPasswordTxt']"
+        },
+        web: {
+            locator: "[data-qa-label='ConfirmPasswordTxt']"
+        },
+    },
+    createAccountButton: {
+        webMobile: {
+            locator: "[qa-label='CreateAccountBtn']"
+        },
+        web: {
+            locator: "[data-qa-label='CreateAccountBtn']"
+        },
+    },
+    createAccountErrorText: {
+        webMobile: {
+            locator: "[qa-label='CreateAccountErrorLbl']"
+        },
+        web: {
+            locator: "[data-qa-label='CreateAccountErrorLbl']"
+        },
+    },
+};
+
 export const LOCATORS = {
     ...HOME_PAGE_ELEMENTS,
     ...LOGIN_PAGE_ELEMENTS,
     ...LOCATION_PAGE_ELEMENTS,
+    ...CREATE_ACCOUNT_PAGE_ELEMENTS
 };
 
 export const LOGIN_DATA = {

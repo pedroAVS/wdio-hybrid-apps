@@ -17,9 +17,12 @@ export const config = {
     capabilities: [{
       browserName: 'chrome',
       'goog:chromeOptions': {
-        args: ['--window-size=1280,800'],
+        args: [
+          '--window-size=1280,800',
+          '--ignore-certificate-errors',
+        ],
       }
     }],
     services: ['chromedriver'],
-    baseUrl: `https://www-${process.argv[3]}.app.com/`,
+    baseUrl: `https://www-${process.argv[3]}.tillster.com/`,
   };
